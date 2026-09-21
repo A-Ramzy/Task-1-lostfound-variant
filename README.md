@@ -73,15 +73,6 @@ response includes the referenced user's `name`/`email` instead of just an
 id. Look up what `.populate()` actually does under the hood (it's a second
 query, not a SQL join) before you use it.
 
-## Grading focus
-
-1. Does the model match the field table (types, enums, defaults)?
-2. Does validation reject bad input (missing title, bad enum value)?
-3. Is the duplicate-item index actually enforced (409 on conflict, not a
-   500 crash)?
-4. Do all five CRUD routes work end-to-end, with correct status codes
-   (201 on create, 404 on missing id, etc.)?
-
 You're expected to use AI tools while building this — that's fine and
 expected. But you should be able to explain, for any line in your
 controller, *why* it's there and what happens if you delete it. We will ask.
