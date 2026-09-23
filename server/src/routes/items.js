@@ -1,14 +1,25 @@
-import { Router } from 'express';
+import express from 'express';
 import {
+  createItem,
   getAllItems,
   getItem,
-  createItem,
   updateItem,
   deleteItem
 } from '../controllers/itemController.js';
 
-const router = Router();
+const router = express.Router();
 
-// TODO: wire up the routes described in README.md section 3.
+// Standard REST mapping over one resource, /api/items:
+// POST   /api/items       -> create
+// GET    /api/items       -> list (+ optional ?status=&category= filters)
+// GET    /api/items/:id   -> read one
+// PUT    /api/items/:id   -> update
+// DELETE /api/items/:id   -> delete
+
+router.post('/', createItem);
+router.get('/', getAllItems);
+router.get('/:id', getItem);
+router.patch('/:id', updateItem);
+router.delete('/:id', deleteItem);
 
 export default router;
